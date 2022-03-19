@@ -1,9 +1,9 @@
-import App from "./App.svelte";
+import Router from "./Router.svelte";
 
 import "./styles/tailwind.scss";
 import "./styles/global.scss";
 
-const app = new App({
+const app = new Router({
   target: document.getElementById("app"),
 });
 
