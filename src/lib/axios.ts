@@ -1,19 +1,22 @@
-import axios from "axios";
-import { sessionGet } from "@/lib/common";
+import axios, { AxiosRequestConfig, AxiosRequestHeaders } from 'axios';
+import { sessionGet } from '@/lib/common';
 
 const httpInit = axios.create({
   headers: {
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json',
   },
   timeout: 3000,
 });
 
 httpInit.interceptors.request.use(
-  (config) => {
-    const token = sessionGet("accessToken");
+  (config: AxiosRequestConfig) => {
+    const token = sessionGet('accessToken');
 
     if (token) {
-      config.headers["Authorization"] = `Bearer ${token}`;
+      config.headers = {
+        ...config.headers,
+        Authorization: `Bearer ${token}`,
+      };
     }
 
     return config;
