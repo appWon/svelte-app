@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "axios": "^0.26.1",
+    "rxjs": "^7.5.5",
     "svelte-router-spa": "^6.0.3"
   }
 }

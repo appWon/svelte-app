@@ -1,5 +1,5 @@
 <script>
-  import { http } from "@/lib/http";
+import { post } from "@/lib/http";
   import { sessionSet } from "@/lib/common";
   import { navigateTo } from "svelte-router-spa";
 
@@ -8,23 +8,21 @@
   let provider = "waynehills";
 
   const login = async () => {
-    http
-      .post("/ttv/api/login", {
+    post('/ttv/api/login',{
         email,
         password,
         provider,
-      })
-      .then((res) => {
-        if (res.data.statusCode === 200) {
-          Object.keys(res.data).map((key) => {
+     }).subscribe(res => {
+       if(res.data.statusCode === 200){
+        Object.keys(res.data).map((key) => {
             sessionSet(key, res.data[key]);
           });
 
           navigateTo("ttv");
-        } else {
-          alert("아이뒤 비밀번호 확인");
-        }
-      });
+       }else{
+               alert("아이뒤 비밀번호 확인");
+       }
+     })
   };
 </script>
 

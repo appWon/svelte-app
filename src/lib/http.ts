@@ -1,24 +1,13 @@
-import axios from "axios";
-import { sessionGet } from "@/lib/common";
+import { httpInit } from "@/lib/axios";
+import { map } from "rxjs/operators";
+import { defer, Observable } from "rxjs";
 
-export const http = axios.create({
-  headers: {
-    "Content-Type": "application/json",
-  },
-  timeout: 3000,
-});
-
-http.interceptors.request.use(
-  (config) => {
-    const token = sessionGet("accessToken");
-
-    if (token) {
-      config.headers["Authorization"] = `Bearer ${token}`;
-    }
-
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
-  }
-);
+export const post = <T>(
+  url: string,
+  body: object,
+  queryParams?: object
+): Observable<T | void> => {
+  return defer(() => httpInit.post<T>(url, body, { params: queryParams })).pipe(
+    map((result) => result.data)
+  );
+};
