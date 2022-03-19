@@ -7,3 +7,9 @@ export const post = <T>(url: string, body: object, queryParams?: object): Observ
         map(result => result.data)
     );
 };
+
+export const get = <T>(url: string, queryParams?: object): Observable<T> => {
+    return defer(() => httpInit.get<T>(url, { params: queryParams })).pipe(
+        map(result => result.data)
+    );
+};

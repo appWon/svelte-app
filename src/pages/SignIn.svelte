@@ -1,5 +1,5 @@
 <script>
-import { post } from '@/lib/http';
+import { post, get } from '@/lib/http';
 import { sessionSet } from '@/lib/common';
 import { navigateTo } from 'svelte-router-spa';
 
@@ -13,9 +13,9 @@ const login = () => {
         password,
         provider,
     }).subscribe(res => {
-        if (res.data.statusCode === 200) {
-            Object.keys(res.data).map(key => {
-                sessionSet(key, res.data[key]);
+        if (res.statusCode === 200) {
+            Object.keys(res).map(key => {
+                sessionSet(key, res[key]);
             });
 
             navigateTo('ttv');
