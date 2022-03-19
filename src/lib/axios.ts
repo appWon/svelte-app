@@ -65,10 +65,3 @@ httpInit.interceptors.response.use(
 );
 
 export { httpInit };
-
-// if (error.response.status === 403 && !originalRequest._retry) {
-//     originalRequest._retry = true;
-//     const access_token = await refreshAccessToken();
-//     axios.defaults.headers.common['Authorization'] = 'Bearer ' + access_token;
-//     return axiosApiInstance(originalRequest);
-// }
