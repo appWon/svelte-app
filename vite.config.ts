@@ -4,6 +4,7 @@ import path from "path";
 
 export default defineConfig(({ mode }: ConfigEnv) => {
   const server = {
+    port: 3001,
     proxy: {
       "/ttv/api": {
         target: "http://app235.iptime.org:3000",
