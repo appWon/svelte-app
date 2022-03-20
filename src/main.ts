@@ -1,10 +1,10 @@
-import Router from "./Router.svelte";
+import Router from './Router.svelte';
 
-import "./styles/tailwind.scss";
-import "./styles/global.scss";
+import './styles/tailwind.scss';
+import './styles/global.scss';
 
 const app = new Router({
-  target: document.getElementById("app"),
+    target: document.getElementById('app'),
 });
 
 export default app;

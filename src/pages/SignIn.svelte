@@ -34,7 +34,9 @@ const login = () => {
 };
 </script>
 
-<div>로그인 페이지</div>
-<input type="text" bind:value="{email}" />
-<input type="text" bind:value="{password}" />
-<button on:click="{login}">로그인</button>
+<div class="flex justify-center h-screen items-center">
+    <video autoplay muted loop class="fixed min-w-full min-h-full inset-0 object-cover bg-black">
+        <source src="https://ttv.waynehills.co/assets/bg.mp4" type="video/mp4" />
+    </video>
+    <div class="z-10 w-[440px] h-[660px]"></div>
+</div>
