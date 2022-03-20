@@ -4,7 +4,7 @@ import path from 'path';
 import 'dotenv/config';
 
 export default defineConfig(({ mode }: ConfigEnv) => {
-    const port = mode === 'development' && 3001;
+    const port = mode === 'development' && 8080;
 
     const server = {
         port,
