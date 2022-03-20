@@ -1,6 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import { sessionGet, sessionSet } from '@/lib/common';
-import { compute_rest_props } from 'svelte/internal';
 
 const httpInit = axios.create({
     headers: {
