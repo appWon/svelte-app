@@ -1,4 +1,5 @@
 module.exports = {
+    important: true,
     content: ['./src/**/*.{html,js,svelte,ts}'],
     theme: {
         colors: {
@@ -9,9 +10,9 @@ module.exports = {
             brand4: ' #e2e2ff',
 
             // Text color
-            main: ' #ffffff',
-            sub1: ' #aaaaaa',
-            sub2: ' #d8d8d8',
+            text1: ' #ffffff',
+            text2: ' #aaaaaa',
+            text3: ' #d8d8d8',
 
             // Background color
             white: ' #ffffff',
